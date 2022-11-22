@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xlib_commonpy"
+version = "0.0.1"
+authors = [
+    { name="Xavier Lian", email="xavierliancw@gmail.com" },
+]
+description = "A collection of Python stuff Xavier uses all the time."
+readme = "README.md"
+requires-python = ">=3.5.2"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/xavierliancw/XLibCommonPy"
+"Bug Tracker" = "https://github.com/xavierliancw/XLibCommonPy/issues"

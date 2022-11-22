@@ -1,0 +1,4 @@
+-r requirements_prod.txt
+
+black
+build
