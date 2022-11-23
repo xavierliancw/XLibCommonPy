@@ -44,8 +44,8 @@ jobs:
         python -m build
     - name: Commit report
       run: |
-        git config --global user.name 'GitHub Runner'
-        git config --global user.email 'githubrunner@users.noreply.github.com'
+        git config --global user.name 'xavierliancw'
+        git config --global user.email 'xavierliancw@users.noreply.github.com'
         git checkout pip
         git commit -am "Automated Deploy"
         git push
