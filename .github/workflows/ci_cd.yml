@@ -41,4 +41,11 @@ jobs:
     - name: Create pip package
       run: |
         python -m pip install -r requirements_dev.txt
-        python -m build 
+        python -m build
+    - name: Commit report
+      run: |
+        git config --global user.name 'GitHub Runner'
+        git config --global user.email 'githubrunner@users.noreply.github.com'
+        git checkout pip
+        git commit -am "Automated Deploy"
+        git push
