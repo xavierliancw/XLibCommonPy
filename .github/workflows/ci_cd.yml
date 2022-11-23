@@ -54,9 +54,10 @@ jobs:
         python -m pip install -r requirements_dev.txt
         python -m build
     - name: Deploy package
+      with:
+        ref: pip
       run: |
         git config --global user.name 'xavierliancw'
         git config --global user.email 'xavierliancw@users.noreply.github.com'
-        git checkout pip
         git commit -am "Automated Deploy"
         git push
