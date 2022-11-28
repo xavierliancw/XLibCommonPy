@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Set
 from unittest import TestCase
 from unittest.mock import patch
 
@@ -31,6 +32,9 @@ class TestBundle(TestCase):
         ):
             innerdir = tmpdir.dirpath.joinpath("innerdir")
             innerdir.mkdir(parents=True)
-            expected = [Path(fout1.name), innerdir]
+            expected: Set[Path] = set()
+            expected.add(Path(fout1.name))
+            expected.add(innerdir)
             mock_bundlepath.side_effect = lambda: tmpdir.dirpath
-            self.assertListEqual(Bundle.list_dir(), expected)
+
+            self.assertSetEqual(set(Bundle.list_dir()), expected)
