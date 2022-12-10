@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+from sys import path
 from typing import List
 
 
@@ -24,7 +25,7 @@ class Bundle:
             # Gets path to bundle when this program has been built
             return Path(sys._MEIPASS)  # type: ignore
         # Path to bundle when debugging
-        return Path(__file__).parent.parent.joinpath("dev_bundle")
+        return Path(path[0]).joinpath("dev_bundle")
 
     @staticmethod
     def list_dir() -> List[Path]:

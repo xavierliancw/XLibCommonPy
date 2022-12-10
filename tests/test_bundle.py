@@ -10,7 +10,14 @@ from src.xlib_commonpy.tmpworkingdir import TMPWorkingDir
 
 class TestBundle(TestCase):
     def test_dirpath(self):
-        expected = Path().absolute().joinpath("src").joinpath("dev_bundle")
+        # The parent folder is "tests" and not "src" because the correct behavior of
+        # this is to have the bundle in the same directory of the entry point. When unit
+        # tests are executing, the entry point is this script. When developers who are
+        # using this library are debugging their code, it should be in their source
+        # folder. The effect of this is such that developers don't have to put their
+        # bundled stuff in the "site-packages" folder when they have this library
+        # installed through pip.
+        expected = Path().absolute().joinpath("tests").joinpath("dev_bundle")
         uut = Bundle.dirpath()
 
         # Developer bundle access
